@@ -1,0 +1,119 @@
+@media (max-width: 506px){
+    .cardsContainer{
+        width: 100% !important;
+    }
+    .styledCardContainer.horizontal{
+        width: 100% !important;
+        margin: 6px;
+        min-width: 200px !important;
+        margin-right: 0px !important;
+        flex-direction: column !important;
+        .photoSection.horizontal{
+            display: flex;
+            justify-content: space-between !important;
+            flex-direction: column !important;
+            min-height: 260px !important;
+            max-width: 224px !important;
+            .swiper{
+                min-height: 260px !important;
+                max-width: 224px !important;
+                height: 100% !important;
+                border-bottom-left-radius: 0em !important;
+            }
+            .swiper-slide.horizontal{
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
+            }
+            .swiper-slide{
+                min-height: 260px !important;
+                max-width: 224px !important;
+                height: 100% !important;
+            }
+        }
+        .desc{
+            width: 100% !important;
+            min-width: 50% !important;
+            border-bottom-left-radius: 1em !important;
+            border-top-left-radius: 1em !important;
+            border-top-left-radius: 0em !important;
+            border-top-right-radius: 0em !important;
+        }
+        .swiper{
+            max-width: 100% !important;
+        }
+    }
+    .link{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    header{
+        height: 70px !important;
+        position: fixed;
+        z-index: 101;
+        .header_container{
+            background-color: #FFFF;
+            width: 100%;
+            .OrBtns{
+                background-color: #FFFF;
+            }
+        }
+    }
+}
+
+@media (max-width: 1398px){
+    .headerCard{
+        flex-direction: column !important;
+        .title{
+            max-width: 100% !important;
+        }
+    }
+}
+
+@media (max-width: 655px){
+    .slideAbout{
+        background: url(../images/source-404.jpg);
+        background-size: cover;
+        min-height: 300px !important;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 455px){
+    .slideAbout{
+        background: url(../images/source-404.jpg);
+        background-size: cover;
+        min-height: 200px !important;
+        padding: 20px;
+        
+    }
+    .descCard{
+        .about{
+            font-size: 14.5px !important;   
+        }
+    }
+}
+
+@media (max-width: 1870px) {
+    main {
+        .upBtnContainer{
+            right: 1rem !important;
+            bottom: 1rem !important;
+        }
+    }
+}
+
+@media (max-width:1259px) {
+    header{
+        height: 70px !important;
+        position: fixed;
+        z-index: 101;
+        .header_container{
+            background-color: #FFFF;
+            width: 100%;
+            .OrBtns{
+                background-color: #FFFF;
+            }
+        }
+    }
+}
