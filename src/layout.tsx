@@ -1,4 +1,4 @@
-import React, { useState , useEffect, } from 'react';
+import { useState , useEffect, } from 'react';
 import styled from 'styled-components';
 import './styles/app.scss'
 import './styles/error.scss'
@@ -11,19 +11,11 @@ import Error from './components/Error/Error';
 import CardContent from './components/Card/CardContent';
 import HeaderLoader from './components/Loader/headerLoader';
 import FooterLoader from './components/Loader/footerLoader';
-import { useDispatch, useSelector } from 'react-redux';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { setDefaultFO, setDefaultSO } from './store/reducers2/oriantationSlice';
-import FetchErrorLoad from './components/Error/FetchErrorLoad';
+// import FetchErrorLoad from './components/Error/FetchErrorLoad';
 import Loader from './components/UI/loader';
-
-// interface props {
-//   price: number,
-//   seen: boolean,
-//   tittle: string,
-//   address: string,
-//   about: string,
-//   createdAt: string,
-// }
+import { RootState } from './store/store';
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -34,18 +26,15 @@ const AppWrapper = styled.div`
   justify-content: center;
   align-items:center;
 `
-
 const Main = styled.main`
   width: 100%;
 `
-
 const Footer = styled.footer`
   min-height: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
 `
-
 const FooterContainer = styled.div`
   width: 1280px;
   display: flex;
@@ -77,17 +66,31 @@ const HeaderContainer = styled.div`
 `
 const OrBtns = styled.div`
   padding: 16px 34px;
-  
   border-radius: 1em;
-  
 `
+export type Post = {
+  id: string,
+  seen: boolean,
+  price: number,
+  title: string,
+  address: string,
+  about: string,
+  createdAt: string
+}
+
+type Items = {
+  items: []
+}
 
 function Layout() {
+  
   const dispatch = useDispatch();
-  const rtkFirstO = useSelector(state => state.cardOriantation.flagFirstOriantaion)
-  const rtlSecO = useSelector(state => state.cardOriantation.flagSecondOriantaion)
-  const [title,setTitle] = useState([])
-  const [photo, setPhoto] = useState([])
+
+  const rtkFirstO = useSelector<RootState>(state => state.cardOriantation.flagFirstOriantaion)
+  const rtlSecO = useSelector<RootState>(state => state.cardOriantation.flagSecondOriantaion)
+  
+  const [title,setTitle] = useState<Post[]>([])
+  // const [photo, setPhoto] = useState([])
   const [allData,setAllData] = useState(false)
   const [sizeFetch,setSizeFetch] = useState(true)
 
@@ -96,15 +99,15 @@ function Layout() {
   const [fetchError, SetFetchError] = useState(false)
   const [fetchErrorLoad,SetFetchErrorLoad] = useState(false)
 
-  const [isOpneLazy, setIsOpenLazy] = useState(false)
+  const [, setIsOpenLazy] = useState(false)
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollBtn,setScrollBtn] = useState(false)
   const [headerNonFix,setHeaderNonFix] = useState(true)
 
   /*Header*/
-  const [secO_State,setO_State] = useState(rtlSecO)
-  const [firstO,setFisrtO_State] = useState(rtkFirstO)
-  console.log(title.length);
+  const [secO_State,setO_State] = useState<any>(rtlSecO)
+  const [firstO,setFisrtO_State] = useState<any>(rtkFirstO)
+  
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
@@ -130,8 +133,7 @@ function Layout() {
   useEffect(() => {
     if(fetching){
       try{
-        // const res = await axios.get<data[]>("https://jsonplaceholder.typicode.com/photos?_limit=10&page_3")
-        axios.get(`https://testguru.ru/frontend-test/api/v1/items?page=${currentPage}`, {
+        axios.get<Items>(`https://testguru.ru/frontend-test/api/v1/items?page=${currentPage}`, {
           params : {
             size: 20,
           }
@@ -152,7 +154,11 @@ function Layout() {
                 setFetching(false)
             })
       } catch (error) {
-        alert('ошибка')
+        if(axios.isAxiosError(error)){
+          console.log(error.response?.data.errText,'error');
+        } else if(error instanceof Error){
+          console.log(error)
+        }
       }
     }
   }, [fetching])
@@ -192,11 +198,11 @@ function Layout() {
               :
               title && 
               title.map(el => 
-              <CardContent key={el.id} el={el} fetching={fetching} setFetching={setFetching} secO_State={secO_State}></CardContent>  
+              <CardContent key={el.id} el={el} secO_State={secO_State}></CardContent>  
               )         
           }
         </CardsContainer>
-      { scrollBtn ? <ScrollToTOP></ScrollToTOP> : null }
+      { scrollBtn ? <ScrollToTOP/> : null }
         </Main>
       }
       {allData ? null :

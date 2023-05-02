@@ -13,13 +13,10 @@ const UpBtnContainer = styled.div`
     right: 22rem;
     bottom: 1rem;
 `
-
 const UpBtn = styled.div`
     margin-left: 10px;
 `
-
-const ScrollToTOP = ({ref}) => {
-    console.log(ref);
+const ScrollToTOP = () => {
     return(
         <UpBtnContainer onClick={()=>{
             window.scrollTo({

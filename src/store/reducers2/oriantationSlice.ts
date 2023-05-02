@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+type Flag = {
+  flagFirstOriantaion: boolean,
+  flagSecondOriantaion: boolean,
+}
+
 export const oriantationSlice = createSlice({
   name: 'oriantationSlice',
   initialState: {

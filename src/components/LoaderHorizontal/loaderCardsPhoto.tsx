@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader"
 
-const LoaderCardsPhoto = (props) => (
+const LoaderCardsPhoto = () => (
   <ContentLoader 
     speed={2}
     width={156}
@@ -8,7 +8,6 @@ const LoaderCardsPhoto = (props) => (
     viewBox="0 0 156 134"
     backgroundColor="#f5efef"
     foregroundColor="#e5dcdc"
-    {...props}
   >
     <rect x="84" y="251" rx="3" ry="3" width="56" height="8" /> 
     <rect x="264" y="0" rx="8" ry="8" width="25" height="25" /> 

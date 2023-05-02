@@ -8,8 +8,6 @@ interface data {
     thumbnailUrl: string
 }
 
-
-
 export const getData = async (config: AxiosRequestConfig) => {
     try{
         const res = await axios.get<data[]>("https://jsonplaceholder.typicode.com/photos?_limit=10&page_3",config)

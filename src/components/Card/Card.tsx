@@ -1,25 +1,14 @@
 import styled from "styled-components"
-import { getData } from "../../api"
-import axios from "axios"
 import '../../../src/styles/card.scss'
-import { useState, useEffect} from 'react'
-import {ReactComponent as Like } from '../../images/IconLikeheart.svg'
 import Skeleton from "../Loader/skeletonLoader"
 import SkeletonPhoto from "../Loader/skeletonPhoto"
 import LoaderCards from "../LoaderHorizontal/loaderCards"
 import LoaderCardsPhoto from "../LoaderHorizontal/loaderCardsPhoto"
-// interface data {
-//     albumId: number,
-//     id: number,
-//     title: string,
-//     url: string,
-//     thumbnailUrl: string
-// }
+import { FC } from 'react';
 
-// interface axiosProps {
-//     title: string,
-
-// }
+type PropsCard = {
+    secO_State: boolean
+}
 
 export const StyledCardContainer = styled.div`
     border-radius: 1em;
@@ -40,14 +29,13 @@ export const Desc = styled.div`
     justify-content: space-between;
     padding: 8px;
 `
-
 export const PhotoSection = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
 `
 
-const Card = ({secO_State}) => {
+const Card: FC<PropsCard> = ({secO_State}) => {
     return (
         <StyledCardContainer className={secO_State ? "styledCardContainer horizontal" : "styledCardContainer"} >
             <PhotoSection >

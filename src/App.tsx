@@ -1,4 +1,3 @@
-import React, { useState , useEffect, } from 'react';
 import styled from 'styled-components';
 import './styles/app.scss'
 import './styles/error.scss'
@@ -24,7 +23,6 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/" element={<Layout/>}>
-              
               {/* <Route path='*' element={<NFP/>}></Route> */}
             </Route>
             <Route path=":id" element={<CardAbout/>}></Route>

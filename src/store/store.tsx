@@ -13,6 +13,7 @@ import {  persistStore,
         } from 'redux-persist'; 
 import storage from 'redux-persist/lib/storage' 
 import seenSlice from "./reducers2/seenSlice";
+import { type } from "os";
 
 
 const rootReducer = combineReducers({
@@ -39,3 +40,6 @@ const store = configureStore({
 
 export const persistor = persistStore(store)
 export default store
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

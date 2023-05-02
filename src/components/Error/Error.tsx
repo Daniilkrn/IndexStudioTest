@@ -1,8 +1,4 @@
-import { useRouteError } from 'react-router-dom'
-import {useState} from 'react'
-
 const Error = () => {
-
     return (
         <div className='error'>
             <p style={{

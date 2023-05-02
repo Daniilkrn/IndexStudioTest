@@ -1,31 +1,23 @@
 import { Desc, PhotoSection, StyledCardContainer } from "./Card"
 import {ReactComponent as Like } from '../../images/IconLikeheart.svg'
 import {useState, useEffect} from 'react'
-import Seen from "./Seen"
-import { useSelector, useDispatch } from "react-redux"
-import { setDefaultSeen } from "../../store/reducers2/seenSlice"
 import {useRef } from 'react'
 import Sliders from "../../Swiper/Swiper"
-import { NavLink, useParams } from "react-router-dom"
-import CardAbout from "../CardAbout/CardAbout"
+import { NavLink, } from "react-router-dom"
 
-const CardContent = ({el,secO_State, fetching}) => {
-    const dispatch = useDispatch()
-    const seen = useSelector(state => state.seenRTK.seenFlag)
-
+const CardContent = ({el,secO_State}) => {
     const [colorLike,setColorLike] = useState(false)
-    const [seenState,setSeenState] = useState(false)
+    const [,setSeenState] = useState(false)
     
     const ref = useRef()
 
     useEffect(() => {
         if(el.seen){
-            localStorage.setItem(`${el.id + el.id}`, true)
+            localStorage.setItem(`${el.id + el.id}`, true.toString())
             setSeenState(true)
         } 
-        
     }, [el.id + el.id])
-    
+
     return (
         <NavLink to={`${el.id}`} className="link" onClick={(e) => {
             if(e.target.firstChild === null){
@@ -34,7 +26,7 @@ const CardContent = ({el,secO_State, fetching}) => {
         }}>
         <StyledCardContainer className={secO_State ? "styledCardContainer horizontal" : "styledCardContainer"} onClick={(e)=>{
             if(!el.seen && e.target.parentNode !== ref.current){
-                localStorage.setItem(`${el.id + el.id}`, true)
+                localStorage.setItem(`${el.id + el.id}`, true.toString())
                 setSeenState(true)
             } 
             if(!e.target == ref.current){
@@ -42,7 +34,7 @@ const CardContent = ({el,secO_State, fetching}) => {
             }
         }}>
                 <PhotoSection className={!secO_State ? "photoSection vertical" : "photoSection horizontal"}>
-                    <Sliders fetching={fetching} seenState={el.seen} id = {el.id} el={el} secO_State={secO_State} className={secO_State ? "vertical" : "horizontal"}/>
+                    <Sliders seenState={el.seen} id = {el.id} el={el} secO_State={secO_State} className={secO_State ? "vertical" : "horizontal"}/>
                 </PhotoSection>
                 <Desc className="desc">
                     <div className="header_card">
@@ -54,7 +46,7 @@ const CardContent = ({el,secO_State, fetching}) => {
                             if(localStorage.getItem(`${el.id}`)) {
                                 localStorage.removeItem(`${el.id}`)
                             } else {
-                                localStorage.setItem(`${el.id}`,!colorLike)
+                                localStorage.setItem(`${el.id}`,!colorLike + '')
                             }
                         }}></Like>
                     </div>

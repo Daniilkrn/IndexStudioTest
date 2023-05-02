@@ -1,7 +1,10 @@
-import Sliders from "../../Swiper/Swiper"
+type SeenProps = {
+    id: string,
+    secO_State: boolean
+    seenState?: boolean
+}
 
-
-const Seen = ({id,secO_State}) => {
+const Seen = ({id,secO_State}:SeenProps) => {
 
     const seen = localStorage.getItem(`${id + id}`)
     

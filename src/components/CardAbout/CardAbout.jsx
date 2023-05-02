@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import axios from "axios";
 import '../../styles/about.scss'
-import Sliders from "../../Swiper/Swiper";
 import SlidersAbout from "../../Swiper/SwiperAbout";
 
 const CardAbout = () => {

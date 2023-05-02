@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 
 export interface Item {
     userId: number,
-     
 }
 
 export const useFetch = (url: string, _start: number) => {

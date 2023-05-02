@@ -1,7 +1,6 @@
 import { getData } from "../../api"
 
 const Desc = () => {
-    getData()
     return (
         <div>
             {}
