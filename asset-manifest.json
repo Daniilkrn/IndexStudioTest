@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/IndexStudioTest/static/css/main.d03d4b1c.css",
-    "main.js": "/IndexStudioTest/static/js/main.fcf44bf5.js",
+    "main.css": "/IndexStudioTest/static/css/main.000908eb.css",
+    "main.js": "/IndexStudioTest/static/js/main.37f0bfa4.js",
     "static/media/source-404.jpg": "/IndexStudioTest/static/media/source-404.80424db9f1680f1931c0.jpg",
     "index.html": "/IndexStudioTest/index.html",
     "static/media/1or.svg": "/IndexStudioTest/static/media/1or.c95804453f760e8b109c38d2c9de4f49.svg",
     "static/media/IconLikeheart.svg": "/IndexStudioTest/static/media/IconLikeheart.1d4d42c43cf468aec8dc4ae6b34beafa.svg",
     "static/media/2or.svg": "/IndexStudioTest/static/media/2or.f896880cfb9b8befb06f7f6668f32556.svg",
     "static/media/arrowUp.svg": "/IndexStudioTest/static/media/arrowUp.26a9c87e79c78c07c11ec2517cb5aafb.svg",
-    "main.d03d4b1c.css.map": "/IndexStudioTest/static/css/main.d03d4b1c.css.map",
-    "main.fcf44bf5.js.map": "/IndexStudioTest/static/js/main.fcf44bf5.js.map"
+    "main.000908eb.css.map": "/IndexStudioTest/static/css/main.000908eb.css.map",
+    "main.37f0bfa4.js.map": "/IndexStudioTest/static/js/main.37f0bfa4.js.map"
   },
   "entrypoints": [
-    "static/css/main.d03d4b1c.css",
-    "static/js/main.fcf44bf5.js"
+    "static/css/main.000908eb.css",
+    "static/js/main.37f0bfa4.js"
   ]
 }
