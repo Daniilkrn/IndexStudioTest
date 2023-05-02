@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { persistor } from './store/store';
+import 'normalize.css';
 
 const Global = createGlobalStyle`
 * {
